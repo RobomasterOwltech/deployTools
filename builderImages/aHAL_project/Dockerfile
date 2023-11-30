@@ -24,7 +24,7 @@ RUN <<EOT bash
     #!/bin/bash
     apt update 
     apt upgrade
-    apt install cmake make 
+    apt install cmake make -y
 EOT
 
 # ===== Install compiler
