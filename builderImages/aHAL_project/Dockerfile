@@ -20,7 +20,8 @@ FROM ubuntu:22.04
 
 # ===== Update repos
     # As a multi-line script
-RUN <<EOT bash
+    # No need for the shebang (#!/bin/bash)
+RUN <<EOT 
     #!/bin/bash
     apt update 
     apt upgrade
@@ -29,14 +30,14 @@ EOT
 
 # ===== Install compiler
 ADD https://developer.arm.com/-/media/Files/downloads/gnu/13.2.rel1/binrel/arm-gnu-toolchain-13.2.rel1-x86_64-arm-none-eabi.tar.xz?rev=e434b9ea4afc4ed7998329566b764309&hash=CA590209F5774EE1C96E6450E14A3E26 /tmp/compiler.tar.xz
-RUN tar -xf /tmp/compiler.tar.xz -C /opt/gcc-arm-none-eabi
+#RUN tar -xf /tmp/compiler.tar.xz -C /opt/gcc-arm-none-eabi
 
 # Add compiler to the path, note how we don't use export to set it globally
-ENV PATH="$PATH:/opt/gcc-arm-none-eabi-13.2/bin" 
+#ENV PATH="$PATH:/opt/gcc-arm-none-eabi-13.2/bin" 
 
 # Print versions to check everything was setup correctly.
-RUN arm-none-eab-gcc 
-RUN arm-none-eab-g++ 
+#RUN arm-none-eab-gcc 
+#RUN arm-none-eab-g++ 
 
 # ===== ===== Build Project ===== =====
 
