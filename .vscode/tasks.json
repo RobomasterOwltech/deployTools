@@ -2,31 +2,46 @@
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
     "version": "2.0.0",
+    // Global configuration
+    "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "revealProblems": "onProblem"
+    },
     "tasks": [
         // ===== Hello World =====
         {
             "label": "Hello world task",
             "type": "shell",
             "command": "echo Hello",
-            "group": "test",
-            "presentation": {
-                "reveal": "always",
-                "panel": "new"
-            }
+            "group": "test"
         },
         // ===== PWD =====
         {
             "label": "Working dir",
             "type": "shell",
             "command": "echo pwd",
-            "group": "test",
-            "presentation": {
-                "reveal": "always",
-                "panel": "new"
-            }
-        }
+            "group": "test"
+        },
         // ===== SCREEN =====
         //*Start a screeen session*
         // Options / status bar
+
+        // ===== Start docker container =====
+        {
+            "label": "Open container",
+            "type": "shell",
+            "command": "docker run",
+            "args": ["-it", "-v" ,"${input:project2Compile}:/tmp/myProject", "owltech:compiler"],
+            "group": "Compilation"
+        }
+    ],
+    "inputs": [
+      {
+        "id": "project2Compile",
+        "type": "promptString",
+        "description": "Plase the full path of the project"
+        // type specific configuration attributes
+      }
     ]
 }
