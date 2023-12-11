@@ -33,7 +33,7 @@
             "type": "shell",
             "command": "docker run",
             "args": ["-it", "-v" ,"${input:project2Compile}:/tmp/myProject", "owltech:compiler"],
-            "group": "Compilation"
+            "group": "build"
         }
     ],
     "inputs": [
