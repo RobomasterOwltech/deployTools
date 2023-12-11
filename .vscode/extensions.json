@@ -1,0 +1,18 @@
+{
+    "recommendations":
+    // ===== C/C++  
+        ["ms-vscode.cpptools", 
+        "ms-vscode.cpptools-extension-pack",
+    // ===== CMake
+        "ms-vscode.makefile-tools",
+        "ms-vscode.cmake-tools",
+        "ms-azuretools.vscode-docker",
+    // ===== Code documentation
+        "cschlosser.doxdocgen",
+    // ===== Intelli
+        "visualstudioexptteam.vscodeintellicode",
+        "visualstudioexptteam.intellicode-api-usage-examples",
+    // ===== Other tools
+        "ms-vscode.vscode-serial-monitor",
+        "tomoki1207.pdf"]
+}
