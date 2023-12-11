@@ -24,35 +24,6 @@
                 "reveal": "always",
                 "panel": "new"
             }
-        },
-        // ===== SCREEN =====
-        //*Start a screeen session*
-        // Options / status bar
-        {
-            "label": "Serial Screen",
-            "type": "shell",
-            "command": "screen {input:serialPort} {input:baudrate}",
-            "group": "test",
-            "presentation": {
-                "reveal": "always",
-                "panel": "new"
-            }
-        }
-    ],
-    // ===== Input section ===== 
-    "inputs": [
-        {
-            "id": "baudrate",
-            "type": "promptString",
-            "default": "115200",
-            "description": "Serial baudrate"
-        },
-        {
-            "id": "serialPort",
-            "type": "promptString",
-            "default": "/dev/tty5",
-            "description": "Confirm before proceding"
-            
         }
     ]
 }
