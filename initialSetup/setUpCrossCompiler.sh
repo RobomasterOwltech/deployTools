@@ -29,5 +29,5 @@ sudo mkdir -p /usr/local/bin/gcc-arm-none-eabi
 sudo ln -s /opt/gcc-arm-none-eabi*/bin/* /usr/local/bin/gcc-arm-none-eabi/
 
 # Add to Path
-export PATH="/usr/local/bin/gcc-arm-none-eabi/:$PATH"
+echo "export PATH=\"/usr/local/bin/gcc-arm-none-eabi/:\$PATH\"" >> $HOME/.bashrc
 
