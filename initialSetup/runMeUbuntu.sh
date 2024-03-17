@@ -34,3 +34,11 @@ installDependencies "ubuntu";
 echo ""
 echo " ===== Generating ssh keys for your github ===== " 
 ssh-keygen -f ~/.ssh/git_"$(whoami)"_key -t ed25519 -N ""
+
+# Add docker to start-up and sudoers
+sudo groupadd docker
+sudo usermod -aG docker $USER
+sudo systemctl enable docker
+
+# Restart, to make changes take effect :)
+sudo reboot now
