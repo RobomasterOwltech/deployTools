@@ -30,4 +30,4 @@ echo "===== Please follow onscreen functions====="
 sudo /opt/cubeMx/SetupSTM32CubeMX-6.10.0
 
 # Shortcut to not write it complete
-echo "alias stmCubeMx=\"sudo /usr/local/STMicroelectronics/STM32Cube/STM32CubeMX/STM32CubeMX\"" >> $HOME/.bashrc
+echo "alias stmCubeMx=\"/usr/local/STMicroelectronics/STM32Cube/STM32CubeMX/STM32CubeMX\"" >> $HOME/.bashrc
