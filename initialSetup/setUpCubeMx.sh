@@ -28,3 +28,6 @@ sudo chmod 777 /opt/cubeMx/SetupSTM32CubeMX-6.10.0
 # Run installation script
 echo "===== Please follow onscreen functions====="
 sudo /opt/cubeMx/SetupSTM32CubeMX-6.10.0
+
+# Shortcut to not write it complete
+alias stmCubeMx="sudo /usr/local/STMicroelectronics/STM32Cube/STM32CubeMX/STM32CubeMX"
