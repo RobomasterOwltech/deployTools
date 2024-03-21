@@ -3,7 +3,8 @@ set -e
 # ===== How to run =====
 # $1 -> path to the downloaded tar file
 if [ -z "$1" ]; then 
-    echo "You need an argument. The path to the downloaded file"
+    echo "You need an argument. The path to the compress compiler."
+    exit 1
 fi 
 
 # ===== Explanations =====
@@ -31,10 +32,12 @@ sudo mkdir -p /usr/local/bin/gcc-arm-none-eabi
 sudo ln -s /opt/gcc-arm-none-eabi*/bin/* /usr/local/bin/gcc-arm-none-eabi/
 
 # Add to Path
+BASHRC_LOCATION="/home/$(users)/.bashrc"
 echo "Updating path" 
-echo "export PATH=\"/usr/local/bin/gcc-arm-none-eabi/:\$PATH\"" >> $HOME/.bashrc
+echo "export PATH=\"/usr/local/bin/gcc-arm-none-eabi/:\$PATH\"" >> $BASHRC_LOCATION
 
 # Update path
-source $HOME/.bashrc
+    # This would only work when the computer has a single user
+source $BASHRC_LOCATION
 
 echo "Done :D" 
