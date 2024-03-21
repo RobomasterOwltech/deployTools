@@ -3,7 +3,7 @@ set -e
 # ===== How to run =====
 # $1 -> path to the downloaded tar file
 if [ -z "$1" ]; then 
-    echo "You need an argument"
+    echo "You need an argument. The path to the downloaded file"
 fi 
 
 # ===== Explanations =====
@@ -20,14 +20,21 @@ if sudo apt remove gcc-arm-none-eabi ; then
 fi
 
 # Extract to /opt
+echo "Extracting tar to  /opt" 
 sudo tar -xf $1 -C /opt
 
 # Create symlinks from opt bins to /usr
+echo "Creating symlinks..." 
 sudo mkdir -p /usr/local/bin/gcc-arm-none-eabi
 
 # Add /usr symlinks to path
 sudo ln -s /opt/gcc-arm-none-eabi*/bin/* /usr/local/bin/gcc-arm-none-eabi/
 
 # Add to Path
+echo "Updating path" 
 echo "export PATH=\"/usr/local/bin/gcc-arm-none-eabi/:\$PATH\"" >> $HOME/.bashrc
 
+# Update path
+source $HOME/.bashrc
+
+echo "Done :D" 
