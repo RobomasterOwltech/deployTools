@@ -4,7 +4,7 @@
 #   * Complete packages list
 
 installDependencies(){
-    apps=( "containerd", "docker", "screen", "arm-none-eabi" )
+    apps=( "containerd", "docker", "screen")
     
     for app in "${apps[@]}"
     do
