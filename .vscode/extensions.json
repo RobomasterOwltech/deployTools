@@ -14,5 +14,7 @@
         "visualstudioexptteam.intellicode-api-usage-examples",
     // ===== Other tools
         "ms-vscode.vscode-serial-monitor",
-        "tomoki1207.pdf"]
+        "tomoki1207.pdf",
+	    "xaver.clang-format",
+        "ms-vscode.makefile-tools"]
 }
