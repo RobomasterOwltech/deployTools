@@ -25,7 +25,7 @@ RUN <<EOT
     #!/bin/bash
     apt update 
     apt upgrade
-    apt install cmake make xz-utils -y
+    apt install cmake make xz-utils git -y
     mkdir -p /opt/gcc-arm-none-eabi/ /tmp/gcc-arm-none-eabi/
 EOT
 
@@ -43,6 +43,38 @@ RUN ln -s /opt/gcc-arm-none-eabi/bin/* /usr/local/bin
 
 # Add compiler to the path, note how we don't use export to set it globally
 ENV PATH="$PATH:/opt/gcc-arm-none-eabi/bin" 
+
+# ===== ===== STM32 dependencies ===== =====
+WORKDIR /tmp
+# Download CMSIS V2 FreeRTOS
+    # I think is not entirely necessary
+# Currently supported chips: 
+    # STM32F4 processor series  
+    # Release notes: https://htmlpreview.github.io/?https://github.com/STMicroelectronics/STM32CubeF4/blob/master/Release_Notes.html
+    # STM32F4 processor series
+    # Release notes: https://htmlpreview.github.io/?https://github.com/STMicroelectronics/STM32CubeH7/blob/master/Release_Notes.html
+
+RUN <<EOT 
+# FreeRTOS
+git clone --depth 1 --branch <tag_name> https://github.com/ARM-software/CMSIS-FreeRTOS
+
+# HAL Drivers
+git clone --depth 1 --branch <tag_name> https://github.com/STMicroelectronics/STM32CubeF4
+git clone --depth 1 --branch <tag_name> https://github.com/STMicroelectronics/STM32CubeH7
+
+# CMSIS MCU
+git clone --depth 1 --branch <tag_name> https://github.com/STMicroelectronics/cmsis_device_f4
+git clone --depth 1 --branch <tag_name> https://github.com/STMicroelectronics/cmsis_device_h7
+
+# USB Middleware STM32
+git clone --depth 1 --branch <tag_name> https://github.com/STMicroelectronics/stm32_mw_usb_device
+
+# Install eigen
+git clone --branch <branch_name> https://gitlab.com/libeigen/eigen.git
+
+EOT
+
+
 
 # ===== ===== Build Project ===== =====
 

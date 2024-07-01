@@ -1,6 +1,0 @@
-
-Download docker
-setup docker for the curent user
-Start docker daemon
-    sudo systemctl enable docker.service
-    sudo systemctl enable containerd.service
