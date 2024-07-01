@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # TODO: 
-#   * Complete packages list
+# * Complete packages list
 
 installDependencies(){
     apps=( "containerd", "docker", "screen", "arm-none-eabi" )
