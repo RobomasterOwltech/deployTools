@@ -79,9 +79,9 @@ EOT
 # ===== ===== Build Project ===== =====
 
 # Create volume mounting point
-VOLUME /tmp/myProject
+VOLUME /home/myProjects
 
 # Change working dir to project location in container
-WORKDIR /tmp/myProject
+WORKDIR /home/myProjects
 
 
