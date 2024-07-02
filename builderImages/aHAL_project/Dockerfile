@@ -1,5 +1,4 @@
 # This image is for compiling STM32 HAL Projects
-# May even work with RTOS Projects
 # ===== ===== ===== ===== ===== =====
 # ===== =====  Arguments  ===== =====
 # Download GNU ARM
