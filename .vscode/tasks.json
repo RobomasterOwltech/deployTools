@@ -24,6 +24,28 @@
                 "reveal": "always",
                 "panel": "new"
             }
+        },
+        // ===== Build compiling image =====
+        {
+            "label": "Build image!",
+            "type": "shell",
+            "command": "docker buildx build builderImages/aHAL_project/",
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        // ===== Create container =====
+        {
+            "label": "Create dev container!",
+            "type": "shell",
+            "command": "echo pwd",
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
         }
     ]
 }
