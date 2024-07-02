@@ -1,6 +1,6 @@
 # Deploy Tools
 
-This Repo aims to compile and deploy code to STM32 boards.
+This Repo aims to ease compilation and deployment code to STM32 boards.
 Most of the projects are oriented towards its use in Robomaster Competition.
 
 ## Prerequisites:
@@ -49,27 +49,27 @@ If you would like to use this repo, you'll need:
 
 
 * Ctrl+Shift+P -> will open the command pallete. 
+    * From the command palette you can run tasks.
+## Contents brief:
 
-### Contents brief:
-
+TODO: 
 * Why is this the repo structure
 * What each folder does
-* Ctrl+Shift+P -> will open the command palette. 
-    From the command palette you can run tasks.
-
-## Contents brief:
-TODO: 
 * How to run a task
 * Configure Docker to do the complete installation of the tools 
+
 ### /builderImages
 
 Contains DockerFiles to make containerized development.
-Tho most tools will be installed locally, the compilation needs to be the same across all team members, so it must be done through the container. 
+Tho most tools will be installed locally, the compilation needs to be the same across all team members, so to keep it standarized it must be done through the container. 
 
 ### /initialSetup
 
-Contains a series of scripts that aim to facilitate the installation of the tools you'll be using.
+Contains a series of bash scripts that aim to facilitate the installation of the tools you'll be using.
 
 ### /.vscode
+Contains configuration files to ease development for your projects. 
+IT achieves so in two ways, tasks, which are a number of small automations. Standard extentions, to make sure evryone has whats required to make clean code on this and other repos easier.
 
-Has some extra configs to easy development on this and other repos easier
+### /.vscode
+TBD
