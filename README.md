@@ -9,21 +9,36 @@ If you would like to use this repo, you'll need:
 * Ubuntu host
 * Git
 * VSCode
-* GNU-ARM toolchain
-* CubeMx(Optional)
+* GNU-ARM toolchain (Optional)
+* CubeMx (Optional)
 
+## Installation steps
 1. If you're on Ubuntu, first run the following:
 
-        sudo apt install git
+        sudo apt install -y git
 
-        git clone "thisRepoSSHCloneCommand"
+        git clone https://github.com/RobomasterOwltech/deployTools.git
 
-        cd deployTools
+        code deployTools
+        
+1. When VS prompts if you want to install the recommended extensions, select `Install`, so your VS Code env is ready to go. ![sample image](/imgs/image.png)
+
+1. Run the first script. Don't forget to make sure it is has executable permissions! 
 
         sudo bash initialSetup/runMeUbuntu.sh
 
 1. Then, register the created ssh keys to your Github account.
-1. Download the gnu-arm-none-eabi toolchain. After that, run
+
+1. `Ctrl+Shift+P` -> will open the command palette. 
+    * From the command palette you can run tasks.
+    1. From here select the tasks to build the development container
+1. Continue cloning all the repos you need.
+
+## (Optional) Replicate the container on your local machine
+
+1. Download the gnu-arm-none-eabi toolchain form [Developer Arm GNU Toolchains](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads)
+
+ 1. After that, run 
 
         sudo bash initialSetup/setUpCrossCompiler.sh
 
@@ -31,25 +46,12 @@ If you would like to use this repo, you'll need:
 
         sudo bash initialSetup/setUpCubeMx.sh
 
-1. When VS prompts if you want to install the recommended extensions, click on yes
-
 ### Tools used installed by the repo
 
 * Docker
 * Some VS Code extensions 
 * screen
 
-## If your completely new:
-
-1. Make sure you've got git installed on your machine.
-1. Go to this repo clone button, and select the ssh option
-1. Run the `runMeUbuntu.sh` file to generate the ssh keys
-1. Add the ssh keys to your github account 
-1. Continue cloning all the repos you need
-
-
-* Ctrl+Shift+P -> will open the command pallete. 
-    * From the command palette you can run tasks.
 ## Contents brief:
 
 TODO: 
@@ -72,4 +74,4 @@ Contains configuration files to ease development for your projects.
 IT achieves so in two ways, tasks, which are a number of small automations. Standard extentions, to make sure evryone has whats required to make clean code on this and other repos easier.
 
 ### /.vscode
-TBD
+TBDone
