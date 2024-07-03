@@ -1,7 +1,10 @@
 #!/bin/bash
-set -e
 # ===== How to run =====
+# sudo bash set setUpCrossCompiler.sh $1
 # $1 -> path to the downloaded tar file
+# ===== ===== ===== =====
+set -e
+
 if [ -z "$1" ]; then 
     echo "You need an argument. The path to the compress compiler."
     exit 1
@@ -34,10 +37,10 @@ sudo ln -s /opt/gcc-arm-none-eabi*/bin/* /usr/local/bin/gcc-arm-none-eabi/
 # Add to Path
 BASHRC_LOCATION="/home/$(users)/.bashrc"
 echo "Updating path" 
-echo "export PATH=\"/usr/local/bin/gcc-arm-none-eabi/:\$PATH\"" >> $BASHRC_LOCATION
+echo "export PATH=\"/usr/local/bin/gcc-arm-none-eabi/:\$PATH\"" >> "$BASHRC_LOCATION"
 
 # Update path
     # This would only work when the computer has a single user
-source $BASHRC_LOCATION
+source "$BASHRC_LOCATION"
 
 echo "Done :D" 
