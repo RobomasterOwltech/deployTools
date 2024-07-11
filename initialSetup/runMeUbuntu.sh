@@ -26,6 +26,7 @@ installDependencies(){
 #echo "   ( (       ) )"
 #echo "    \ `-._,-' /"
 #echo "      `-._,-'"
+
 echo " ===== Welcome to the team! ===== "
 echo "This repo will setup most of the things yo need to start developing."
 
