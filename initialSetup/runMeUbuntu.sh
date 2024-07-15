@@ -1,18 +1,17 @@
 #!/bin/bash
 
 # TODO: 
-# * Complete packages list
-
-# Verificar la codificación del archivo
-#file_encoding=$(file -bi "$0" | awk -F "=" '{print $2}')
-#iconv -f "$file_encoding" -t en_UTF-8 "$0" > "$0.tmp"
-#mv "$0.tmp" "$0"
+# Do a oneliner for the apt install?
 
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 installDependencies(){
-    apps=( "containerd" "docker" "screen" "runc")
+    apps=("containerd" "docker" "screen" "runc" \
+        "build-essential" "synaptic" "python3-dev" \
+        "python3-pip" "openssl" "libssl-dev" \
+        "gnome-shell-extensions")
+
     sudo apt update -y
     sudo apt upgrade -y
     for app in "${apps[@]}"
@@ -23,21 +22,22 @@ installDependencies(){
     done
 }
 
-echo "        ,o."
-echo "       (   )"
-echo "        ) ("
-echo "      ,'   `."
-echo "  ,-'/       \`-."
-echo " (   `-.___,-'   )"
-echo "  `-.         ,-'"
-echo "     /`,---.'\"
-echo "    / /     \ \"
-echo "   ( (       ) )"
-echo "    \ `-._,-' /"
-echo "      `-._,-'"
+printf "        .o. \n"
+printf "       (   ) \n"
+printf "        ) ( \n"
+printf "      .'   '. \n"
+printf "  .-'/       \\'-. \n"
+printf " (   '-.___.-'   ) \n"
+printf "  '-.         .-' \n"
+printf "     /'.---.'\\ \n"
+printf "    / /     \ \\ \n"
+printf "   ( (       ) ) \n"
+printf "    \ '-._.-' / \n"
+printf "      '-._.-' \n"
 
 echo " ===== Welcome to the team! ===== "
 echo "This repo will setup most of the things yo need to start developing."
+echo "Your computer will restart once finished."
 
 installDependencies "ubuntu";
 
@@ -47,7 +47,7 @@ ssh-keygen -f ~/.ssh/git_"$(whoami)"_key -t ed25519 -N ""
 
 # Add docker to start-up and sudoers
 sudo groupadd docker
-sudo usermod -aG docker $USER
+sudo usermod -aG docker "$USER"
 sudo systemctl enable docker
 
 # Restart, to make changes take effect :)
