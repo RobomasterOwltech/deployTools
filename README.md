@@ -29,7 +29,7 @@ If you would like to use this repo, you'll need:
 
 1. Then, register the created ssh keys to your Github account.
 
-1. `Ctrl+Shift+P` -> will open the command palette. 
+1. `Ctrl+Shift+B` -> will open the command palette. 
     * From the command palette you can run tasks.
     1. From here select the tasks to build the development container
 1. Continue cloning all the repos you need.
@@ -63,7 +63,7 @@ TODO:
 ### /builderImages
 
 Contains DockerFiles to make containerized development.
-Tho most tools will be installed locally, the compilation needs to be the same across all team members, so to keep it standarized it must be done through the container. 
+Tho most tools will be installed locally, the compilation needs to be the same across all team members, so to keep it standardized it must be done through the container. 
 
 ### /initialSetup
 
@@ -71,7 +71,7 @@ Contains a series of bash scripts that aim to facilitate the installation of the
 
 ### /.vscode
 Contains configuration files to ease development for your projects. 
-IT achieves so in two ways, tasks, which are a number of small automations. Standard extentions, to make sure evryone has whats required to make clean code on this and other repos easier.
+IT achieves so in two ways, tasks, which are a number of small automations. Standard extensions, to make sure everyone has whats required to make clean code on this and other repos easier.
 
 ### /.vscode
 TBDone
