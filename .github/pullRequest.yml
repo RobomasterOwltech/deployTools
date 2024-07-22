@@ -1,0 +1,20 @@
+name: Manage Pull Requests
+
+on:
+  pull_request_target:
+    types: [opened]
+
+jobs:
+
+  
+
+  greeting_on_pr:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Greet new pull request
+        uses: actions/first-interaction@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          pr-message: "Welcome to OwlTech, you're now part of the community!"
