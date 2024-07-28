@@ -14,22 +14,14 @@
                 "panel": "new"
             }
         },
-        // ===== PWD =====
-        {
-            "label": "Working dir",
-            "type": "shell",
-            "command": "echo pwd",
-            "group": "test",
-            "presentation": {
-                "reveal": "always",
-                "panel": "new"
-            }
-        },
         // ===== Build compiling image =====
         {
             "label": "Build image!",
             "type": "shell",
-            "command": "docker buildx build builderImages/aHAL_project/",
+            "command": "docker",
+            // The use of args is necesarry, since if there's space in the fields,
+            // the value will be quoted, probably making the command fail.
+            "args": ["build", "-t", "owltech/compiler", "builderImages/aHAL_project/"],
             "group": "build",
             "presentation": {
                 "reveal": "always",
@@ -40,12 +32,41 @@
         {
             "label": "Create dev container!",
             "type": "shell",
-            "command": "echo pwd",
+            "command": "docker",
+            "args": ["run", "-d", "-v", "${input:projectFolder}:/home/myProjects", "--name", "compiler4Owltech", "owltech/compiler"],
             "group": "build",
             "presentation": {
                 "reveal": "always",
                 "panel": "new"
             }
+            // "dependsOrder": "sequence",
+            // "dependsOn":[ ]
+        },
+        // ===== Upload to DevBoard =====
+        // sudo st-flash write Debug/STM32VLDISCOVERY.bin 0x08000000
+        {
+            "label": "Upload code!",
+            "type": "shell",
+            "command": "sudo st-flash write",
+            "args": ["${input:path2Bin}", "0x08000000"],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        }     
+    ],
+    "inputs": [
+        {
+            "id": "path2Bin",
+            "description": "Path to the binary file generated after build",
+            "default": "build/main.bin",
+            "type": "promptString"
+        },
+        {
+            "id": "projectFolder",
+            "description": "Path to the project you want to build in your local computer.",
+            "type": "promptString"
         }
     ]
 }
