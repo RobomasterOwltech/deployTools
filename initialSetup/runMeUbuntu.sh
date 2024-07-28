@@ -4,7 +4,7 @@
 # * Complete packages list
 
 installDependencies(){
-    apps=( "containerd", "docker", "screen")
+    apps=( "containerd", "docker", "screen", "stlink-tools")
     
     for app in "${apps[@]}"
     do
