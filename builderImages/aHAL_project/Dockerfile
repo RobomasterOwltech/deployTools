@@ -17,12 +17,14 @@ ARG compiler_dwn_link=https://developer.arm.com/-/media/Files/downloads/gnu/13.2
 # Tag versioning
     # See https://docs.docker.com/reference/dockerfile/#arg
 ARG FreeRTOS_tag
+ARG STM32F1_tag
 ARG STM32F4_tag
 ARG STM32H7_tag
 ARG USB_tag
 ARG eigen_ver
 
 ENV FreeRTOS_tag=${FreeRTOS_tag:-v11.1.0}
+ENV STM32F1_tag=${STM32F1_tag:-v1.8.5}
 ENV STM32F4_tag=${STM32F4_tag:-v1.28.0}
 ENV STM32H7_tag=${STM32H7_tag:-v1.11.0}
 ENV USB_tag=${USB_tag:-v2.11.0}
@@ -59,15 +61,16 @@ RUN ln -s /opt/gcc-arm-none-eabi/bin/* /usr/local/bin
 ENV PATH="$PATH:/opt/gcc-arm-none-eabi/bin" 
 
 # ===== STM32 dependencies
-WORKDIR /tmp
+WORKDIR /opt
 # Download CMSIS V2 FreeRTOS
     # I think this not entirely necessary
 # Currently supported chips: 
     # Since these are the Firmware package, it includes HAL drivers and CMSIS MCU config
     # STM32F4 processor series  
     # Release notes: https://htmlpreview.github.io/?https://github.com/STMicroelectronics/STM32CubeF4/blob/master/Release_Notes.html
-    # STM32F4 processor series
+    # STM32H7 processor series
     # Release notes: https://htmlpreview.github.io/?https://github.com/STMicroelectronics/STM32CubeH7/blob/master/Release_Notes.html
+    # STM32F1 processor series
 
     RUN <<EOT 
     #!/bin/bash
@@ -75,9 +78,9 @@ WORKDIR /tmp
     git clone --depth 1 --branch $FreeRTOS_tag https://github.com/ARM-software/CMSIS-FreeRTOS
 
     # STM32 FIRMWARE PACKAGE 
-        
     git clone --recursive --depth 1 --branch $STM32F4_tag https://github.com/STMicroelectronics/STM32CubeF4
     git clone --recursive --depth 1 --branch $STM32H7_tag https://github.com/STMicroelectronics/STM32CubeH7
+    git clone --recursive --depth 1 --branch $STM32F1_tag https://github.com/STMicroelectronics/STM32CubeF1.git
 
     # USB Middleware STM32
     git clone --depth 1 --branch $USB_tag https://github.com/STMicroelectronics/stm32_mw_usb_device
@@ -89,10 +92,8 @@ EOT
 
 # ===== ===== Build Project ===== =====
 
-# Create volume mounting point
-VOLUME /home/myProjects
-
 # Change working dir to project location in container
 WORKDIR /home/myProjects
 
-
+# Keep the container running
+ENTRYPOINT [ "tail", "-f", "/dev/null" ]
